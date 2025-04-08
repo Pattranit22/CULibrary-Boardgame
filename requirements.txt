@@ -1,13 +1,14 @@
-openai==1.14.2
-langchain==0.1.14
-langchain-core==0.1.50
-langchain-openai==0.1.6
-langchain-community==0.0.24
-langchain-huggingface==0.1.2
-huggingface-hub==0.23.0
-faiss-cpu==1.7.3
-pandas==1.5.3
-llama-index==0.5.2
-numpy==1.23.5
+openai
+langchain
+langchain-core
+langchain-openai
+langchain-community
+langchain-huggingface
+huggingface-hub
+faiss-cpu
+pandas
+llama-index
+numpy
+
 
 
