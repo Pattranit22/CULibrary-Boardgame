@@ -6,9 +6,9 @@ st.set_page_config(page_title="Board Game Recommender", page_icon="🎲")
 # เตรียมเอกสารและ chain ตอนเริ่มรัน
 @st.cache_resource
 def setup_chain():
-    pdf_path = r"Data/การให้บริการบอร์ดเกม.pdf"
-    #excel_path = r"Data/List_CULibraryBoardgame.xlsx"#
-    excel_path = r"Data/test.xlsx"
+    pdf_path = "Data/การให้บริการบอร์ดเกม.pdf"
+    #excel_path = "Data/List_CULibraryBoardgame.xlsx"#
+    excel_path = "Data/test.xlsx"
     documents = load_data(pdf_path, excel_path)
     return create_rag_chain(documents)
 
