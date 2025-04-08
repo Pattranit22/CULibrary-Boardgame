@@ -8,7 +8,7 @@ st.set_page_config(page_title="Board Game Recommender", page_icon="🎲")
 def setup_chain():
     pdf_path = "Data"
     #excel_path = "Data/List_CULibraryBoardgame.xlsx"#
-    excel_path = "Data"
+    excel_path = "Data/test.xlsx"
     documents = load_data(pdf_path, excel_path)
     return create_rag_chain(documents)
 
