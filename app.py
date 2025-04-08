@@ -1,7 +1,9 @@
 import streamlit as st
 from langchain_core.messages import HumanMessage, AIMessage
 from curag_final import load_data, create_rag_chain  # แก้ชื่อไฟล์ Python ด้านบนให้ตรง เช่น boardgame_rag.py
-
+import asyncio
+import nest_asyncio
+nest_asyncio.apply()
 st.set_page_config(page_title="Board Game Recommender", page_icon="🎲")
 # เตรียมเอกสารและ chain ตอนเริ่มรัน
 @st.cache_resource
