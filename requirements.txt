@@ -9,6 +9,6 @@ faiss-cpu
 pandas
 llama-index
 numpy
-
+openpyxl
 
 
