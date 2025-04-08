@@ -10,5 +10,5 @@ pandas
 llama-index
 numpy
 openpyxl
-
+nest_asyncio
 
