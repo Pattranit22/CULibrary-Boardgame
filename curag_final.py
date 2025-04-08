@@ -103,9 +103,9 @@ def chat_loop(retrieval_chain):
         print("Assistant:", response["answer"])
 
 if __name__ == "__main__":
-    pdf_path = r"C:\Users\Pattranit\RAG\Data"
-    #excel_path = r"C:\Users\Pattranit\RAG\Data\List_CULibraryBoardgame.xlsx"#
-    excel_path = r"C:\Users\Pattranit\RAG\Data\Test.xlsx"
+    pdf_path = r"Data/การให้บริการบอร์ดเกม.pdf"
+    #excel_path = r"Data/List_CULibraryBoardgame.xlsx"#
+    excel_path = r"Data/test.xlsx"
 
     documents = load_data(pdf_path, excel_path)
     retrieval_chain = create_rag_chain(documents)
