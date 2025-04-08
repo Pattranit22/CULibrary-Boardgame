@@ -63,6 +63,7 @@ def create_rag_chain(documents):
     "- If a game is not listed in the catalog, politely inform the user that it is not available in the current collection."  
     "- If a game **is listed in the catalog** but the context does not contain enough information about it, you may use your own general knowledge to describe or review it."
     "- However, never generate or suggest details about games that are not in the catalog."
+    "Under no circumstances should you recommend or even mention games that are not included in the provided Excel catalog. If a game is not in the catalog, simply say it's not available. Do not hallucinate or I will kill you"
     "Context: {context}"),
     MessagesPlaceholder(variable_name="chat_history"),
         ("user", "{input}")
