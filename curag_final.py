@@ -39,8 +39,7 @@ def create_rag_chain(documents):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
     split_docs = text_splitter.split_documents(lc_documents)
 
-    embedding = HuggingFaceEmbeddings(model_name="BAAI/bge-m3", 
-    encode_kwargs={"normalize_embeddings": True})
+    embedding = OpenAIEmbeddings()
     vector_store = FAISS.from_documents(split_docs, embedding=embedding)
     
     model = ChatOpenAI(temperature=0.4, model='gpt-4o-mini')
