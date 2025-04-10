@@ -1,8 +1,6 @@
 import streamlit as st
 from langchain_core.messages import HumanMessage, AIMessage
 from curag_final_real import load_data, create_rag_chain  # แก้ชื่อไฟล์ Python ด้านบนให้ตรง เช่น boardgame_rag.py
-from sentence_transformers import SentenceTransformer
-SentenceTransformer("BAAI/bge-m3")
 import asyncio
 import nest_asyncio
 nest_asyncio.apply()
@@ -22,28 +20,28 @@ retrieval_chain = setup_chain()
 
 st.title("CULibrary Board game")
 st.markdown("""
-ยินดีต้อนรับสู่ผู้ช่วยแนะนำบอร์ดเกมของหอสมุดจุฬาฯ!
-สามารถถามคำถามเกี่ยวกับบอร์ดเกมที่มีให้บริการในห้องสมุดจุฬาฯ ได้ทุกเรื่อง
-ไม่ว่าจะเป็นการแนะนำเกม กติกาเกม รีวิวเกม กลยุทธ์ในการเล่น หรือข้อมูลการยืมเกมจากห้องสมุด
+ยินดีต้อนรับสู่บอร์ดเกมของหอสมุดกลางจุฬาลงกรณ์มหาวิทยาลัย!
+ถ้าอยากรู้ว่าเกมไหนน่าเล่น กติกาเป็นยังไง เล่นยังไงให้ชนะ หรืออยากอ่านรีวิวเกมสนุกๆ 
+รวมถึงข้อมูลการยืมเกมจากห้องสมุดจุฬาฯ — ถามเราได้เลย! 😄
 """)
 
 st.markdown("ข้อความเริ่มบทสนทนา")  # Section title in Thai
-
+starter_question = None
 col1, col2 = st.columns(2)
 with col1:
     if st.button("แนะนำบอร์ดเกมให้หน่อย"):
-        user_input = "แนะนำบอร์ดเกมให้หน่อย"
+        starter_question = "แนะนำบอร์ดเกมให้หน่อย"
 with col2:
     if st.button("อยากรู้รีวิวเกม Sheriff of Nottingham "):
-        user_input = "อยากรู้รีวิวเกม Sheriff of Nottingham"
+        starter_question = "อยากรู้รีวิวเกม Sheriff of Nottingham"
 
 col3, col4 = st.columns(2)
 with col3:
     if st.button("เกม DiXit เล่นยังไง"):
-        user_input = "เกม DiXit เล่นยังไง"
+        starter_question = "เกม DiXit เล่นยังไง"
 with col4:
     if st.button("บอร์ดเกมเปิดให้บริการวันไหนบ้าง"):
-        user_input = "บอร์ดเกมเปิดให้บริการวันไหนบ้าง"
+        starter_question = "บอร์ดเกมเปิดให้บริการวันไหนบ้าง"
 
 # เก็บประวัติแชท
 if "chat_history" not in st.session_state:
@@ -58,6 +56,19 @@ for msg in st.session_state.chat_history:
 
 # Input กล่องข้อความ
 user_input = st.chat_input("Ask me anything about board games...")
+if starter_question:
+    st.session_state.chat_history.append(HumanMessage(content=starter_question))
+
+    response = retrieval_chain.invoke({
+        "input": starter_question,
+        "chat_history": st.session_state.chat_history
+    })
+
+    ai_msg = response["answer"]
+    st.session_state.chat_history.append(AIMessage(content=ai_msg))
+
+    st.chat_message("user").markdown(starter_question)
+    st.chat_message("assistant").markdown(ai_msg)
 
 if user_input:
     # เพิ่มข้อความผู้ใช้ในประวัติ
