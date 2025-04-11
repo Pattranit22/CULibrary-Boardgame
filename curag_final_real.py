@@ -14,7 +14,8 @@ from langchain.schema import Document as LCDocument
 from langchain_core.prompts import MessagesPlaceholder
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain.chains.history_aware_retriever import create_history_aware_retriever
-from langchain_huggingface.embeddings import HuggingFaceEmbeddings
+from datetime import datetime
+
 # Set API key
 load_dotenv()
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
@@ -62,6 +63,7 @@ def create_rag_chain(documents):
     vector_store = FAISS.from_documents(split_docs, embedding=embedding)
     
     model = ChatOpenAI(temperature=0.2, model='gpt-4o-mini')
+    
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", 
@@ -113,7 +115,7 @@ def create_rag_chain(documents):
 
 "Additional Task:, "
 "- You can also answer general questions about board games, but only about games found in the Excel file., "
-
+"Today is {current_datetime},. Use this current date and time to help answer questions such as whether the board game zone is open."
 
     
 
@@ -131,6 +133,7 @@ def create_rag_chain(documents):
     return retrieval_chain
 
 def chat_loop(retrieval_chain):
+    current_datetime = datetime.now().strftime("%A, %d %B %Y %H:%M")
     chat_history = []
     while True:
         user_input = input("ํYou: ")
@@ -138,7 +141,8 @@ def chat_loop(retrieval_chain):
             break
         response = retrieval_chain.invoke({
             "input": user_input,
-            "chat_history": chat_history
+            "chat_history": chat_history,
+            "current_datetime": current_datetime
         })
         chat_history.append(HumanMessage(content=user_input))
         chat_history.append(AIMessage(content=response["answer"]))
