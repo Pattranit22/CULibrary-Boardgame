@@ -3,6 +3,7 @@ from langchain_core.messages import HumanMessage, AIMessage
 from curag_final_real import load_data, create_rag_chain  # แก้ชื่อไฟล์ Python ด้านบนให้ตรง เช่น boardgame_rag.py
 import asyncio
 import nest_asyncio
+from datetime import datetime
 nest_asyncio.apply()
 st.set_page_config(page_title="CULibrary Board game", page_icon="🎲")
 # เตรียมเอกสารและ chain ตอนเริ่มรัน
@@ -57,11 +58,13 @@ for msg in st.session_state.chat_history:
 # Input กล่องข้อความ
 user_input = st.chat_input("Ask me anything about board games...")
 if starter_question:
+    current_datetime = datetime.now().strftime("%A, %d %B %Y %H:%M")
     st.session_state.chat_history.append(HumanMessage(content=starter_question))
 
     response = retrieval_chain.invoke({
         "input": starter_question,
-        "chat_history": st.session_state.chat_history
+        "chat_history": st.session_state.chat_history,
+        "current_datetime": current_datetime
     })
 
     ai_msg = response["answer"]
@@ -71,14 +74,15 @@ if starter_question:
     st.chat_message("assistant").markdown(ai_msg)
 
 if user_input:
+    current_datetime = datetime.now().strftime("%A, %d %B %Y %H:%M")
     # เพิ่มข้อความผู้ใช้ในประวัติ
     st.session_state.chat_history.append(HumanMessage(content=user_input))
     
     # ส่งไปที่ RAG
     response = retrieval_chain.invoke({
         "input": user_input,
-        "chat_history": st.session_state.chat_history
-    })
+        "chat_history": st.session_state.chat_history,
+        "current_datetime": current_datetime})
 
     ai_msg = response["answer"]
     st.session_state.chat_history.append(AIMessage(content=ai_msg))
