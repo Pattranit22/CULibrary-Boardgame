@@ -89,7 +89,7 @@ def create_rag_chain(documents):
         "• bluffing/deception (e.g. hidden roles)"
         "• word games, deduction, storytelling, and more."
 
-"Only after steps 2, 3, and 4 (if applicable), recommend games."
+#"Only after steps 2, 3, and 4 (if applicable), recommend games."#
 "5. Recommendation:"  
 "- If the user provides a favorite game, recommend other board games from the Excel file that share at least one category listed in the 'Board game Categories' column."  
 "- Do NOT recommend the same game."  
