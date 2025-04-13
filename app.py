@@ -69,12 +69,12 @@ body {
 div.stButton > button {
     font-family: 'Prompt', sans-serif !important;
     background-color: white;
-    width: 200px;        
+    width: 230px;        
     color: #737373;
     padding: 0.75em 2em;
     border: 1px solid #f2f2f2;
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 16px;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.15);
     margin: 0.5em;
 }
