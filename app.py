@@ -74,7 +74,7 @@ div.stButton > button {
     padding: 0.75em 2em;
     border: 1px solid #f2f2f2;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 14px;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.15);
     margin: 0.5em;
 }
