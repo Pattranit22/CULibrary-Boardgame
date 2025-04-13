@@ -9,11 +9,11 @@ st.set_page_config(page_title="CULibrary Board game", page_icon="🎲")
 # เตรียมเอกสารและ chain ตอนเริ่มรัน
 @st.cache_resource
 def setup_chain():
-    #pdf_path = "Data"#
-    #excel_path = "Data/List_CULibraryBoardgame.xlsx"#
-    #excel_path = "Data/test.xlsx"#
-    pdf_path = r"C:\Users\Pattranit\RAG\Data"
-    excel_path = r"C:\Users\Pattranit\RAG\Data\Test.xlsx"
+    pdf_path = "Data"
+    #excel_path = "Data/List_CULibraryBoardgame.xlsx"
+    excel_path = "Data/test.xlsx"
+    #pdf_path = r"C:\Users\Pattranit\RAG\Data"
+    #excel_path = r"C:\Users\Pattranit\RAG\Data\Test.xlsx"
 
     documents = load_data(pdf_path, excel_path)
     return create_rag_chain(documents)
