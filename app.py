@@ -69,7 +69,7 @@ body {
 div.stButton > button {
     font-family: 'Prompt', sans-serif !important;
     background-color: white;
-    width: 250px;        
+    width: 200px;        
     color: #737373;
     padding: 0.75em 2em;
     border: 1px solid #f2f2f2;
