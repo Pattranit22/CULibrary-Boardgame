@@ -11,7 +11,7 @@ st.set_page_config(page_title="CULibrary Board game", page_icon="🎲")
 def setup_chain():
     pdf_path = "Data"
     #excel_path = "Data/List_CULibraryBoardgame.xlsx"
-    excel_path = "Data/test.xlsx"
+    excel_path = "Data/test3.xlsx"
     #pdf_path = r"C:\Users\Pattranit\RAG\Data"
     #excel_path = r"C:\Users\Pattranit\RAG\Data\Test.xlsx"
 
