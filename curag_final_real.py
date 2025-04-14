@@ -162,7 +162,7 @@ def chat_loop(retrieval_chain):
 if __name__ == "__main__":
     pdf_path = r"C:\Users\Pattranit\RAG\Data"
     #excel_path = r"C:\Users\Pattranit\RAG\Data\List_CULibraryBoardgame.xlsx"#
-    excel_path = r"C:\Users\Pattranit\RAG\Data\Test.xlsx"
+    excel_path = r"C:\Users\Pattranit\RAG\Data\Test3.xlsx"
 
     documents = load_data(pdf_path, excel_path)
     retrieval_chain = create_rag_chain(documents)
