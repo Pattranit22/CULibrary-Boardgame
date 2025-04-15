@@ -142,8 +142,8 @@ with col1:
 with col2:
     if st.button("How to play Azul?"):
         starter_question = "How to play Azul?"
-    if st.button("Any reviews on Sheriff of Nottingham?"):
-        starter_question = "Any reviews on Sheriff of Nottingham?"
+    if st.button("Any 4 player bluffing games you'd recommend?"):
+        starter_question = "Any 4 player bluffing games you'd recommend?"
 
 # เก็บประวัติแชท
 if "chat_history" not in st.session_state:
