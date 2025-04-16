@@ -105,7 +105,7 @@ def create_rag_chain(documents):
 "- For each recommendation, provide a brief explanation of those games."  
 "- If no games share any category with the favorite game, you may use general knowledge to recommend similar games — but only from those found in the Excel file."  
 #"- If no suitable games can be found, respond with: 'Sorry, we don’t currently have a game that matches your preferences, but feel free to ask about other options!'"  
-"- If the user provides a type of game, recommend games that match from the Excel file."
+"- If the user provides a game categories, recommend games from the Excel file that contain at least one matching category in the 'Board game Categories' column."
 "  If the user mentions more than one game type (e.g., 'strategy' and 'family'), prioritize recommending games that match the most of those categories in the Excel file."
 "  If multiple games match equally well, suggest a diverse set of up to 3 options."
 "- If there is no perfect match, suggest the closest available options from the Excel file only."
