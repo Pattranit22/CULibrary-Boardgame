@@ -118,7 +118,8 @@ def create_rag_chain(documents):
 "Games with significantly shorter playtimes are also acceptable if they match the game type and player count — you may suggest playing them in multiple rounds."
 "If a game has an average playtime significantly less than the user's total available time, but matches their preferred category and player count, you should still recommend it."
 "Tell the user that the game can be played in multiple rounds within the time they have."
-
+"DO NOT mention the same games that you already recommended"
+         
 "Answering Availability Questions:, "
 "- If the user asks whether a specific game is available (e.g., 'Do you have Dixit?'), carefully check the context., "
 "- Try to match the game name even if it's written differently (e.g., 'DiXit', 'Avalon', '7Wonders'). Be flexible with spelling and capitalization., "
