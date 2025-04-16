@@ -154,8 +154,8 @@ def create_rag_chain(documents):
 
     document_chain = create_stuff_documents_chain(llm=model, prompt=prompt)
     retriever = vector_store.as_retriever(
-        search_type="mmr",  #or mmr
-        search_kwargs={"k": 20, "lambda_mult": 1})
+        search_type="similarity",  #or mmr
+        search_kwargs={"k": 60, "lambda_mult": 1})
 
     retrieval_chain = create_retrieval_chain(retriever, document_chain)
     #print(f"MMR retrieved: {len(docs_mmr)}")
