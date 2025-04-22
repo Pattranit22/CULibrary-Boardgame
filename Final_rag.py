@@ -229,6 +229,7 @@ def filter_games(df, min_p=None, max_p=None, categories=None, max_play_time=None
     if categories is not None:
         mapped = map_categories_with_llm(categories, df["Board game Categories"])
         if mapped:
+            mapped = [cat.lower() for cat in mapped]
             def has_category(cell):
                 game_categories = [c.strip().lower() for c in str(cell).split('/')]
                 return any(cat.lower() in game_categories for cat in mapped)
