@@ -135,8 +135,8 @@ with col1:
 with col2:
     if st.button("How to play Azul?"):
         starter_question = "How to play Azul?"
-    if st.button("Any reviews on Sheriff of Nottingham?"):
-        starter_question = "Any reviews on Sheriff of Nottingham?"
+    if st.button("I'm looking for bluffing games"):
+        starter_question = "I'm looking for bluffing games"
 
 
    
