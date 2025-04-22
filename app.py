@@ -8,10 +8,10 @@ st.set_page_config(page_title="CULibrary Board game", page_icon="🎲")
 # แทน "your_script_name" ด้วยชื่อไฟล์นั้น (เช่น rag_chatbot.py)
 
 # โหลดข้อมูล
-PDF_PATH = r"C:\Users\Pattranit\RAG\Data\การให้บริการบอร์ดเกม.pdf"
-EXCEL_PATH = r"C:\Users\Pattranit\RAG\Data\test3.xlsx"
-#EXCEL_PATH = "Data/test3.xlsx"
-#PDF_PATH = "Data"
+#PDF_PATH = r"C:\Users\Pattranit\RAG\Data\การให้บริการบอร์ดเกม.pdf"
+#EXCEL_PATH = r"C:\Users\Pattranit\RAG\Data\test3.xlsx"
+EXCEL_PATH = "Data/test3.xlsx"
+PDF_PATH = "Data"
 df, pdf_docs, vector_store = load_data(PDF_PATH, EXCEL_PATH)
 document_chain, retrieval_chain = create_chains(vector_store, pdf_docs, df, None)
 
