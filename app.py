@@ -100,7 +100,7 @@ div.stButton > button:hover {
 
 col1, col2, col3 = st.columns([2, 1, 2])
 with col2:
-   st.image(r"C:\Users\Pattranit\RAG\Data\boardgame_logo.png", width=150)
+   st.image("boardgame_logo.png", width=150)
 # Title
 st.markdown("<div class='custom-title'>CULibrary Board_Game</div>", unsafe_allow_html=True)
 
