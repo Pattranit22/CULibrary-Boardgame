@@ -8,10 +8,10 @@ st.set_page_config(page_title="CULibrary Board game", page_icon="🎲")
 # แทน "your_script_name" ด้วยชื่อไฟล์นั้น (เช่น rag_chatbot.py)
 
 # โหลดข้อมูล
-PDF_PATH = r"C:\Users\Pattranit\RAG\Data\การให้บริการบอร์ดเกม.pdf"
-EXCEL_PATH = r"C:\Users\Pattranit\RAG\Data\test3.xlsx"
-#EXCEL_PATH = "Data/test3.xlsx"
-#PDF_PATH = "Data"
+#PDF_PATH = r"C:\Users\Pattranit\RAG\Data\การให้บริการบอร์ดเกม.pdf"
+#EXCEL_PATH = r"C:\Users\Pattranit\RAG\Data\test3.xlsx"
+EXCEL_PATH = "Data/test3.xlsx"
+PDF_PATH = "Data/การให้บริการบอร์ดเกม.pdf"
 df, pdf_docs, vector_store = load_data(PDF_PATH, EXCEL_PATH)
 document_chain, retrieval_chain = create_chains(vector_store, pdf_docs, df, None)
 
@@ -100,7 +100,7 @@ div.stButton > button:hover {
 
 col1, col2, col3 = st.columns([2, 1, 2])
 with col2:
-   st.image(r"C:\Users\Pattranit\RAG\Data\boardgame_logo.png", width=150)
+   st.image("boardgame_logo.png", width=150)
 # Title
 st.markdown("<div class='custom-title'>CULibrary Board_Game</div>", unsafe_allow_html=True)
 
