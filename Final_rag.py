@@ -104,7 +104,7 @@ Game list guidelines:
 - Do **not** skip, summarize, interpret, or remove any entries.
 - Each game should be listed on its own line.
 - Do **not** include any explanation or formatting around the list.
-         
+-Cross-check the two sections. If a game is listed in the first section (recommended), **do NOT include it in the second section (remaining list)**
 "Language Handling:, "
 - Always respond in the same language the user uses. 
 - If the user uses Thai, ask and answer questions in Thai. 
