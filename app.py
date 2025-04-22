@@ -214,7 +214,7 @@ if user_input:
         st.write("Filtered games:", matches)
         
         if matches.empty:
-            answer = "ไม่พบเกมที่ตรงกับเงื่อนไขที่ระบุค่ะ"
+            answer = "ไม่พบเกมที่ตรงกับเงื่อนไขที่ระบุค่ะ ถ้าสนใจเกมอื่นๆ สามารถสอบถามได้นะคะ"
         else:
             matched_docs = []
             for idx, row in matches.iterrows():
