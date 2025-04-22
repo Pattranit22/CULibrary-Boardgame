@@ -97,7 +97,8 @@ Your task:
 
 Then, list up to 20 remaining game names from the context, excluding the 3 you just recommended. 
 Do not invent or add games that are not listed in the context.
-         
+If there are no remaining games after recommendation, **do not include a remaining list section at all**.
+
 Game list guidelines: 
 - Do **not** list the same game more than once.
 - Do **NOT** repeat any game name in both sections.
