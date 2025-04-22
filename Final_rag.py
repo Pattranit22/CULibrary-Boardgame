@@ -297,7 +297,7 @@ def chat_loop(document_chain, retrieval_chain, df, pdf_file):
                 )
 
                 if matches.empty:
-                    print("Assistant: ไม่พบเกมที่ตรงกับเงื่อนไขที่ระบุค่ะ")
+                    print("Assistant: ไม่พบเกมที่ตรงกับเงื่อนไขที่ระบุค่ะ ถ้าสนใจเกมอื่นๆ สามารถสอบถามได้นะคะ")
                     continue
                 else:
                     matched_docs = []
