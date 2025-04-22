@@ -7,3 +7,4 @@ langchain-openai
 faiss-cpu
 openai
 pypdf
+openpyxl
