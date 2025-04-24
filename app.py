@@ -35,7 +35,7 @@ body {
     font-family: 'Prompt', sans-serif;
     color: #DE5C8E;
     text-align: center;
-    font-size: 42px;
+    font-size: 38px;
     margin-bottom: 10px;
     font-weight: bold;
 }
@@ -102,7 +102,7 @@ col1, col2, col3 = st.columns([2, 1, 2])
 with col2:
    st.image("boardgame_logo.png", width=150)
 # Title
-st.markdown("<div class='custom-title'>CULibrary Board_Game</div>", unsafe_allow_html=True)
+st.markdown("<div class='custom-title'>CULibrary Board Game Buddy</div>", unsafe_allow_html=True)
 
 # Welcome message
 st.markdown("""
