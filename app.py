@@ -63,7 +63,7 @@ body {
 div.stButton > button {
     font-family: 'Prompt', sans-serif !important;
     background-color: white;
-    width: 200px;        
+    width: 250px;        
     color: #737373;
     padding: 0.75em 2em;
     border: 1px solid #f2f2f2;
@@ -135,8 +135,8 @@ with col1:
 with col2:
     if st.button("How to play Azul?"):
         starter_question = "How to play Azul?"
-    if st.button("I'm looking for bluffing games"):
-        starter_question = "I'm looking for bluffing games"
+    if st.button("Any reviews on Sheriff of Nottingham?"):
+        starter_question = "Any reviews on Sheriff of Nottingham?"
 
 
    
@@ -170,7 +170,7 @@ if starter_question and not user_input:
     user_input = starter_question
 
 if user_input:
-    with st.chat_message("user"):
+    with st.chat_message("user", avatar="🦹‍♂️"):
         st.markdown(user_input)
 
     st.session_state.chat_history.append(HumanMessage(content=user_input))
@@ -183,7 +183,7 @@ if user_input:
     "max_play_time": None
 }
     filters = analyze_query_for_filter(user_input, initial_filters)
-    st.write("Analyze filters from query:", filters)
+    #st.write("Analyze filters from query:", filters)
     
 # 2. ใช้ session_state เก็บ active_filters (ปลอดภัยต่อการ rerun)
     if "active_filters" not in st.session_state:
@@ -202,7 +202,7 @@ if user_input:
                 active_filters[key] = filters[key]
 
 
-    st.write("Active filters:", active_filters)
+    #st.write("Active filters:", active_filters)
     if any(value is not None for value in active_filters.values()):
         matches = filter_games(
             df,
@@ -211,10 +211,10 @@ if user_input:
             categories=active_filters["categories"],
             max_play_time=active_filters["max_play_time"]
         )
-        st.write("Filtered games:", matches)
+        #st.write("Filtered games:", matches)
         
         if matches.empty:
-            answer = "ไม่พบเกมที่ตรงกับเงื่อนไขที่ระบุค่ะ ถ้าสนใจเกมอื่นๆ สามารถสอบถามได้นะคะ"
+            answer = "ไม่พบเกมที่ตรงกับเงื่อนไขที่ระบุค่ะ"
         else:
             matched_docs = []
             for idx, row in matches.iterrows():
@@ -251,5 +251,5 @@ if user_input:
         answer = response["answer"]
 
     st.session_state.chat_history.append(AIMessage(content=answer))
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant", avatar= "🤖"):
         st.markdown(answer)
