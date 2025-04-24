@@ -63,7 +63,7 @@ body {
 div.stButton > button {
     font-family: 'Prompt', sans-serif !important;
     background-color: white;
-    width: 250px;        
+    width: 200px;        
     color: #737373;
     padding: 0.75em 2em;
     border: 1px solid #f2f2f2;
@@ -135,8 +135,8 @@ with col1:
 with col2:
     if st.button("How to play Azul?"):
         starter_question = "How to play Azul?"
-    if st.button("Any reviews on Sheriff of Nottingham?"):
-        starter_question = "Any reviews on Sheriff of Nottingham?"
+    if st.button("I'm looking for a bluffing game"):
+        starter_question = "I'm looking for a bluffing game"
 
 
    
