@@ -154,9 +154,9 @@ if "active_filters" not in st.session_state:
 
 for msg in st.session_state.chat_history:
     if isinstance(msg, HumanMessage):
-        st.chat_message("user").markdown(msg.content)
+        st.chat_message("user", avatar="🦹‍♂️").markdown(msg.content)
     elif isinstance(msg, AIMessage):
-        st.chat_message("assistant").markdown(msg.content)
+        st.chat_message("assistant", avatar="🤖").markdown(msg.content)
 
 current_datetime = datetime.now().strftime("%A, %d %B %Y %H:%M")
 
